@@ -1,7 +1,5 @@
 from abc import ABC, abstractmethod
 
-
-
 # Abstrakte Basisklasse
 class Person(ABC):
 
@@ -19,8 +17,6 @@ class Person(ABC):
         return f"[{self.id_nummer}] {self.name} - Rolle: {self.role_beschreibung()}"
 
 
-
-
 # Konkrete Unterklasse: Studierende
 class Studierende(Person):
 
@@ -31,10 +27,9 @@ class Studierende(Person):
     def role_beschreibung(self) -> str:
         return f"Studierende(r) im Studiengang {self.studiengang}"
 
-
-    
+    # überschreiben der Methode ausgeben_info() in der Unterklasse
     def ausgeben_info(self) -> str:
-        return 'ding dong'
+        return 'Ich bin aus einer Überschriebenen Me'
 
 
 
@@ -76,25 +71,8 @@ if __name__ == "__main__":
 
     # erstellen eines Feldes
     personen = [studierende, professor, staff]
-    
-
-    # Erstellen von konkreten Objekten
-    personen1 = [
-        Studierende("Anna Schmidt", 1001, "Informatik"),
-        Professoren("Dr. h.c. Alan Turing", 2001, "Computer Science"),
-        Staff("Maria Weber", 3001, "Studierendensekretariat"),
-    ]
-
-
-
-    neue_personen = personen.copy()  # Kopieren der Liste, um die ursprüngliche Liste nicht zu verändern
-
-    print(neue_personen[0].ausgeben_info())
-    personen[0].name = "Klaus Müller"
-    print(neue_personen[0].ausgeben_info())
-
 
 
     # Polymorphe Verwendung
     for p in personen:
-        print(p.ausgeben_info())
+        print(p.ausgeben_info()) # Beim Studierenden wird hier die überschreibende Methode ausgeben_info() aufgerufen, die 'ding dong' zurückgibt
