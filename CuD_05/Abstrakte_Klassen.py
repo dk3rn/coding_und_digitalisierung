@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-
+import copy
 
 # Abstrakte Basisklasse
 class Person(ABC):
@@ -81,6 +81,11 @@ if __name__ == "__main__":
 
 
     neue_personen = personen.copy()  # Kopieren der Liste, um die ursprüngliche Liste nicht zu verändern
+
+    # wichtig: import copy, um die Objekte selbst zu kopieren
+    neue_personen = copy.deepcopy(personen)  # Tiefenkopie, um die Objekte selbst zu kopieren
+
+
 
     print(neue_personen[0].ausgeben_info())
     personen[0].name = "Klaus Müller"
