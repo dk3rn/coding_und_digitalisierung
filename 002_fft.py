@@ -16,6 +16,8 @@ t = np.linspace(0, t_end, int(f_sample * t_end), endpoint=False)
 
 # --- 2. Signal flach machen (Oberwellen erzeugen) & weniger Rauschen ---
 # Reiner Sinus, der über die Clipping-Grenzen hinausgeht
+
+# tolles fft file
 y_raw = 1.5 * np.sin(2 * np.pi * f_signal * t)
 
 # Abflachen (Clipping auf [-0.75, 0.75]) -> Erzeugt ungerade Oberwellen

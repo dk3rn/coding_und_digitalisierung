@@ -81,11 +81,10 @@ if __name__ == "__main__":
 
 
     neue_personen = personen.copy()  # Kopieren der Liste, um die ursprüngliche Liste nicht zu verändern
-    
+
     print(neue_personen[0].ausgeben_info())
     personen[0].name = "Klaus Müller"
     print(neue_personen[0].ausgeben_info())
-
 
 
 

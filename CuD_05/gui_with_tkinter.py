@@ -1,6 +1,5 @@
 import tkinter as tk
 
-
 def on_button_click():
   user_input = entry.get()
   label.config(text=f"Eingabe: {user_input}")
