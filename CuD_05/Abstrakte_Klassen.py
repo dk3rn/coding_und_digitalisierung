@@ -18,6 +18,8 @@ class Person(ABC):
         return f"[{self.id_nummer}] {self.name} - Rolle: {self.role_beschreibung()}"
 
 
+
+
 # Konkrete Unterklasse: Studierende
 class Studierende(Person):
 
@@ -51,6 +53,7 @@ class Staff(Person):
         return f"Mitarbeiter(in) in der Abteilung {self.abteilung}"
 
 
+
 # --- Anwendungsbeispiel ---
 if __name__ == "__main__":
     # Versuch, eine Instanz der abstrakten Klasse zu erstellen (führt zu einem TypeError):
@@ -59,12 +62,22 @@ if __name__ == "__main__":
     except TypeError as e:
         print(f"Fehler wie erwartet: {e}\n")
 
+    # Erstellen von Objekten 
+    studierende = Studierende("Max Mustermann", 1234, "Informatik")
+    professor = Professoren("Dr. h.c. Ada Lovelace", 5678, "Mathematik")
+    staff = Staff("John Doe", 9101, "Verwaltung")   
+
+    # erstellen eines Feldes
+    personen = [studierende, professor, staff]
+    
+
     # Erstellen von konkreten Objekten
-    personen = [
+    personen1 = [
         Studierende("Anna Schmidt", 1001, "Informatik"),
         Professoren("Dr. h.c. Alan Turing", 2001, "Computer Science"),
         Staff("Maria Weber", 3001, "Studierendensekretariat"),
     ]
+
 
     # Polymorphe Verwendung
     for p in personen:
