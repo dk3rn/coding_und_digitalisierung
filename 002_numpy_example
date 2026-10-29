@@ -1,0 +1,41 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+
+daten_np = np.array([23 , 25 , 22 , 26 , 24 , 23 , 105 , 25 , 27 , 24 , 110 , 26])
+
+# 1. Ausreisser filtern mit Boolescher Maskierung
+bereinigte_daten_np = daten_np [ daten_np <= 50]
+ausreisser_np = daten_np [ daten_np > 50]
+
+print("NumPy - Bereinigte Daten:", bereinigte_daten_np)
+print("NumPy - Ausreißer:", ausreisser_np)
+
+# 2. Statistische Kennzahlen direkt abrufen
+mittelwert_np = np.mean(bereinigte_daten_np)
+median_np = np.median(bereinigte_daten_np)
+
+print ( f" NumPy - Mittelwert : { mittelwert_np } , Median : { median_np }")
+
+
+
+# Zwei Subplots nebeneinander erstellen
+fig,(ax1,ax2) = plt.subplots (2 , 1 , figsize =(12 , 5) )
+
+# 1. Trend der Originaldaten ( mit Ausreissern )
+ax1.plot ( daten_np , marker ='o', color ='g', linestyle ='--')
+ax1.set_title ('Trend der Originalmesswerte ')
+ax1.set_xlabel ('Index ')
+ax1.set_ylabel ('Messwert ')
+
+# 2. Balkendiagramm der bereinigten Daten
+indizes = range (len ( daten_np ) )
+ax2.bar ( indizes , daten_np , color ='blue')
+ax2.set_title ('Messwerte ')
+ax2.set_xlabel ('Index ')
+ax2.set_ylabel ('Messwert ')
+plt.tight_layout ()
+plt.show ()
+
+

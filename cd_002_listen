@@ -1,0 +1,8 @@
+# Mathematik mit Standard-Listen
+
+daten = [1, 2, 3, 4, 5]
+
+# Zwingt zu langsamen Schleifen
+ergebnis = []
+for zahl in daten:
+    ergebnis.append(zahl * 2)
